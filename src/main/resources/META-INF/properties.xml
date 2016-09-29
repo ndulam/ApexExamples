@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<configuration>
+  <!-- <property> <name>dt.application.{appName}.operator.{opName}.prop.{propName}</name> 
+    <value>some-default-value (if value is not specified, it is required from 
+    the user or custom config when launching)</value> </property> -->
+  <!-- memory assigned to app master <property> <name>dt.attr.MASTER_MEMORY_MB</name> 
+    <value>1024</value> </property> -->
+
+  <!-- JDBC driver in use -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.store.databaseDriver
+    </name>
+    <value>com.mysql.jdbc.Driver</value>
+  </property>
+
+    <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.store.userName
+    </name>
+    <value>dmf</value>
+  </property>
+
+    <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.store.password
+    </name>
+    <value>adminTm0bil1</value>
+  </property>
+
+  
+  <!-- URL to connect to the DB master -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.store.databaseUrl
+    </name>
+    <value>jdbc:mysql://10.154.47.143:3306/dif</value>
+  </property>
+
+  <!-- # rows that the operator can retrieve in a window -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.fetchSize
+    </name>
+    <value>50</value>
+  </property>
+
+  <!-- Query to fetch data -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.query
+    </name>
+    <value>select column_count,incremental_column_value,partition_field_no from job_details
+    </value>
+  </property>
+
+  <!-- Table name -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.prop.tableName
+    </name>
+    <value>job_details</value>
+  </property>
+
+  <!-- POJO class -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.JdbcInput.port.outputPort.attr.TUPLE_CLASS
+    </name>
+    <value>com.example.mydtapp.PojoEvent</value>
+  </property>
+
+  <!-- Output folder for HDFS output operator -->
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.FileOutputOperator.filePath
+    </name>
+    <value>/tmp/jdbcApp</value>
+  </property>
+
+  <property>
+    <name>dt.application.SimpleJdbcToHDFSApp.operator.FileOutputOperator.rotationWindows
+    </name>
+    <value>5</value>
+  </property>
+
+
+
+</configuration>
+
